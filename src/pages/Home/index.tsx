@@ -1,13 +1,20 @@
 import { FormEvent, useState } from 'react'
-import illustrationImg from '../assets/images/illustration.svg'
-import logoImg from '../assets/images/logo.svg'
-import googleIconImg from '../assets/images/google-icon.svg'
-import Button from '../components/Button'
+import illustrationImg from '../../assets/images/illustration.svg'
+import logoImg from '../../assets/images/logo.svg'
+import googleIconImg from '../../assets/images/google-icon.svg'
+import { Button } from '../../components'
 import { useHistory } from 'react-router'
-import useAuth from '../hooks/useAuth'
-import { database } from '../services/firebase'
+import useAuth from '../../hooks/useAuth'
+import { database } from '../../services/firebase'
+import { Aside, 
+         Container, 
+         Form, 
+         Main, 
+         Content, 
+         Separator, 
+         ButtonGoogle } 
+      from './styles'
 
-import '../styles/auth.scss'
 
 function Home() {
    const history = useHistory()
@@ -40,21 +47,21 @@ function Home() {
    }
 
    return (
-      <div id='page-auth'>
-         <aside>
+      <Container>
+         <Aside>
             <img src={illustrationImg} alt='ilustração/ perguntas e respostas'/>
             <strong>crie salas de Q&amp;A ao-vivo</strong>
             <p>tire as dúvidas da sua audiência em tempo-real</p>
-         </aside>
-         <main>
-            <div className='main-content'>
+         </Aside>
+         <Main>
+            <Content>
                <img src={logoImg} alt='letmeask' />
-               <button onClick={handleCreateRoom} className='create-room'>
+               <ButtonGoogle onClick={handleCreateRoom}>
                   <img src={googleIconImg} alt='logo do Google' />
                   crie sua sala com o Google
-               </button>
-               <div className='separator'>ou entre em uma sala</div>
-               <form onSubmit={handleJoinRoom}>
+               </ButtonGoogle>
+               <Separator>ou entre em uma sala</Separator>
+               <Form onSubmit={handleJoinRoom}>
                   <input
                      type='text'
                      placeholder='Digite o código da sala'
@@ -64,10 +71,10 @@ function Home() {
                   <Button type='submit'>
                      Entrar na sala
                   </Button>
-               </form>
-            </div>
-         </main>
-      </div>
+               </Form>
+            </Content>
+         </Main>
+      </Container>
    )
 }
 

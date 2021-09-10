@@ -1,11 +1,12 @@
-import logoImg from '../assets/images/logo.svg'
-import deleteImg from '../assets/images/delete.svg'
-import checkImg from '../assets/images/check.svg'
-import answer from '../assets/images/answer.svg'
-import { Button, Separator, RoomCode, Question } from '../components'
+import React from 'react'
+import logoImg from '../../assets/images/logo.svg'
+import deleteImg from '../../assets/images/delete.svg'
+import checkImg from '../../assets/images/check.svg'
+import answer from '../../assets/images/answer.svg'
+import { Button, Separator, RoomCode, Question } from '../../components'
 import { useHistory, useRouteMatch } from 'react-router-dom'
-import UseRoom from '../hooks/useRoom'
-import { database } from '../services/firebase'
+import UseRoom from '../../hooks/useRoom'
+import { database } from '../../services/firebase'
 
 type RoomParams = {
    id: string;

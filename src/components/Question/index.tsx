@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { Container, UserInfo } from './styles'
 
 type QuestionProps = {
    children?: ReactNode
@@ -15,22 +16,22 @@ function Question({ content, author, children, isHighlighted = false, isAnswered
    : QuestionProps) {
 
       return (
-         <div className={`question ${isAnswered ? 'answered' : ''} ${isHighlighted ? 'highlighted' : ''}`}>
+         <Container className={`question ${isAnswered ? 'answered' : ''} ${isHighlighted ? 'highlighted' : ''}`}>
             <p>
                {content}
             </p>
             <footer>
-               <div className='UserInfo'>
+               <UserInfo>
                   <img src={author.avatar} alt='avatar'/>
                   <span>
                      {author.name}
                   </span>
-               </div>
+               </UserInfo>
                <div>
                   {children}
                </div>
             </footer>
-         </div>
+         </Container>
       )
    }
 
